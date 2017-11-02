@@ -1,4 +1,4 @@
-# The Hunger Games
+#  <p align="center">    The Hunger Games  </p>
 
 A **real time shooting based survival game** in which each
 player is for himself. Each player is equipped with a laser gun, a
@@ -7,16 +7,6 @@ server that is continuously monitoring the entire game. The
 server may reward or penalize the player depending upon her/his
 performance and creates bombs to make the game more difficult
 and tricky.
-
-Group consists of:
-
-a.) Paritosh Mittal
-
-b.) Mudit Agarwal 
-
-c.) Manoj Ghuhan A
-
-d.) Kevin Pandya
 
 
 **Salient Features**
@@ -38,22 +28,22 @@ d.) Kevin Pandya
 **Components Used :**
 
 ```
- Raspberry Pi2  LCD Display
+ Raspberry Pi2                                          LCD Display
 ```
 ```
- Arduino Mega  Light Dependent Resistors
+ Arduino Mega                                           Light Dependent Resistors
 ```
 ```
- Arduino Base Shield  Grove LED Bars
+ Arduino Base Shield                                    Grove LED Bars
 ```
 ```
- Xbee Shield  Buzzer
+ Xbee Shield                                            Buzzer
 ```
 ```
- Xbee S1  Laser
+ Xbee S1                                                Laser
 ```
 ```
- Xbee Dongle  LED
+ Xbee Dongle                                            LED
 ```
 ```
  BLE Beacon
@@ -79,6 +69,12 @@ measured.
 Since Laser is a very high intensity source, potential across LDR
 saw a quick increase from its previous value. This difference was
 measured and used to keep track of the bullets consumed.
+
+![ShootingImage1](https://github.com/paritoshmittal12/HungerGames/blob/master/shooting/shooting1.png)
+
+![ShootingImage2](https://github.com/paritoshmittal12/HungerGames/blob/master/shooting/shooting2.png)
+
+![ShootingImage3](https://github.com/paritoshmittal12/HungerGames/blob/master/shooting/shooting3.png)
 
 Hardware Used:
 a.) Laser
@@ -112,6 +108,12 @@ maximum damage.
 c.) **Chest Shot –** A normal damage of 10 points whenever any
 other sensor is hit if Armour is 0.
 
+![HealthImage1](https://github.com/paritoshmittal12/HungerGames/blob/master/health/health1.png)
+
+![HealthImage2](https://github.com/paritoshmittal12/HungerGames/blob/master/health/health2.png)
+
+![HealthImage3](https://github.com/paritoshmittal12/HungerGames/blob/master/health/health3.png)
+
 Library Link: https://github.com/Seeed-Studio/Grove_LED_Bar
 
 
@@ -126,6 +128,9 @@ Library Link: https://github.com/Seeed-Studio/Grove_LED_Bar
     time. Your health will not be affected if you have greater
     than 0 Armour unless it is a head shot.
 
+![ArmourImage1](https://github.com/paritoshmittal12/HungerGames/blob/master/armour/armour1.png)
+
+![ArmourImage2](https://github.com/paritoshmittal12/HungerGames/blob/master/armour/armour2.png)
 
 ## LCD Display
 
@@ -147,48 +152,10 @@ LiquidCrystal. **print** (message); // _prints the message on lcd display_
 
 LiquidCrystal. **clear** (); // Clear screen
 
-Pin connections
 
---------------------------
+![LCDImage1](https://github.com/paritoshmittal12/HungerGames/blob/master/armour/armour3.png)
 
-|VSS| -> Arduino GND
-
-|VDD| -> Arduino +5v
-
-|VO | -> Arduino GND pin
-
-|RS | -> Arduino pin 12
-
-|RW | -> Arduino 7
-
-|E | -> Arduino pin 6
-
-|D0 | -> Arduino - Not Connected
-
-|D1 | -> Arduino - Not Connected
-
-|D2 | -> Arduino - Not Connected
-
-
-|D3 | -> Arduino - Not Connected
-
-|D4 | -> Arduino pin 25
-
-|D5 | -> Arduino pin 24
-
-|D6 | -> Arduino pin 23
-
-|D7 | -> Arduino pin 22
-
-|A | -> Arduino Pin 13
-
-|K | -> Arduino GND
-
-## Note: If you're refering to the data sheet of LCD display you
-
-will find that VO is connected through 10k potentiometer. But in
-our case we're connecting arduino to pc through USB so current is
-small enough so poterntiometer is not required.
+![LCDImage1](https://github.com/paritoshmittal12/HungerGames/blob/master/armour/LCD1.png)
 
 Useful Link: https://www.arduino.cc/en/Tutorial/HelloWorld
 
@@ -217,6 +184,13 @@ contained particular tokens that helped pi decide necessary actions required.
 Script was written in such a way that pi knew every small thing that was
 happening in the game and hence updates were made in real-time.
 
+![CommImage1](https://github.com/paritoshmittal12/HungerGames/blob/master/xbee/XBee1.png)
+
+
+![CommImage2](https://github.com/paritoshmittal12/HungerGames/blob/master/xbee/XBee2.png)
+
+
+![CommImage3](https://github.com/paritoshmittal12/HungerGames/blob/master/xbee/XBee3.png)
 
 ## Distance Approximation
 
@@ -269,6 +243,8 @@ the necessary updates, thereby being up-to-date all through the game.
 
 A player wins the game if he is the first one to reach the pi.
 
+![Pi Image](https://github.com/paritoshmittal12/HungerGames/blob/master/Pi2/Pi2.png)
+
 Useful Link: https://github.com/nioinnovation/python-xbee
 
 
@@ -309,79 +285,7 @@ anywhere you want. The world is your stage here. Although care
 should be taken as external power needs to be given to drive
 each Arduino board and corresponding sensors.
 
-
-## Problems Faced
-
-**Using Xbee!**
-
-Xbees need to be configured first using XCTU software, by default,
-Xbee shield uses the same Serial port as used by the Arduino and
-hence won’t work. Using Software Serial Library we change the
-serial ports and Jumpers are put to the corresponding slots to
-ensure proper Communication
-
-**Using Xbee and Bluetooth Simultaneously!**
-
-Both Xbee and Bluetooth use serial ports for communication and
-hence by default, only one can work. Putting Bluetooth on a
-different Hardware Serial port solves the problem.
-
-**Bluetooth RSSI value for Distance!**
-
-The RSSI value is known to jump abruptly and hence we need to
-average it over a particular time duration to normalize the
-anomalies.
-
-**Bullet Count!**
-
-An innovative way of Reflection based shot firing technique helps
-keeping in track of the bullets being fired.
-
-**Normalize Varying Light:**
-
-Game when played in dark or in Direct Sunlight, affects the value
-of LDRs and hence to avoid always changing code, we used
-difference of intensities or measuring the spike in voltage drop to
-signify a hit.
-
-
-## Conclusion
-
-Working with the Raspberry Pi and Arduino was an exciting
-experience. We were able to appreciate the power and potential
-of the Arduino and the Pi and their ability to work with multiple
-sensors at a time. The project also helped us better understand
-how to work with hardware and low level software. As the world
-starts to realize the potential of IoT and Real World Games. This
-project has provided a glimpse of that future, and we hope it is
-useful for us in the future.
-
-## Future Works
-
-**Map**
-
-Additional feature of map can be added in the LCD Display itself.
-The distance of player can be measured from the centralized
-server and can be reflected on LCD Display. Along with this
-various positions of Armour and Allies can be shown on the
-Display.
-
-**Virtual Reality**
-
-The game can be taken to VR level with suitable equipments.
-
-**Weapons**
-
-The concept of different weapons can be introduced if we can
-have lasers who can emit rays at different wavelength acoording
-to the provided code.
-
-**Training**
-
-This project with full-fledged equipments can be used to train in
-Army and other combat scenarios. As we all know evolution of
-warfare games is closely related to real world combat scenarios.
-far
+*Due to internal reasons Python script for Raspberry Pi2 is not shared* 
 
 Group consists of:
 
